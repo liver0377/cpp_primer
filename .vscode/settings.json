@@ -40,7 +40,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "cstring": "cpp"
     },
     "C_Cpp.default.includePath": [
         "./chapter1/headers"
