@@ -45,6 +45,10 @@
     },
     "C_Cpp.default.includePath": [
         "./chapter1/headers",
-        "./chapter6/headers"
+        "./chapter6/headers",
+        "./chapter7/headers"
+    ],
+    "cSpell.words": [
+        "getaddress"
     ]
 }
