@@ -2,11 +2,11 @@
 
 using namespace std;
 
+void f();
+void f(int);
+void f(int, int);
+void f(double, double = 3.14);
+
 int main() {
-   int a[] = {1, 2, 3, 4, 5};
-
-   cout << *begin(a) << *(end(a) - 1) << endl;
-
-
-   return 0;
+   
 }
