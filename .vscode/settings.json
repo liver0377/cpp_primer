@@ -50,5 +50,6 @@
     ],
     "cSpell.words": [
         "getaddress"
-    ]
+    ],
+    "C_Cpp.clang_format_style": "LLVM"
 }
