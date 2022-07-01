@@ -1,3 +1,6 @@
+#ifndef SALES_DATA
+#define SALES_DATA
+
 #include <iostream>
 #include <string>
 
@@ -17,11 +20,10 @@ class Sales_data {
 
   public:
     // 构造函数
-    Sales_data(const std::string &s) : bookNo(s) {}
-    Sales_data(const std::string &s, unsigned n, double p)
-        : bookNo(s), units_sold(n), revenue(p) {}
-    Sales_data(std::istream &is) { read(is, *this); }
-    Sales_data() : units_sold(0), revenue(0) {}
+    Sales_data(const std::string &s, unsigned n, double p) {}
+    Sales_data() : Sales_data("", 0, 0) {}
+    explicit Sales_data(const std::string &s) : Sales_data(s, 0, 0) {}
+    explicit Sales_data(std::istream &is) : Sales_data() { read(is, *this); }
 
     // 成员函数
     std::string isbn() const { return bookNo; }
@@ -62,3 +64,5 @@ std::ostream &print(std::ostream &os, const Sales_data &item) {
        << item.avg_price();
     return os;
 }
+
+#endif

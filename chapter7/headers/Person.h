@@ -1,3 +1,6 @@
+#ifndef PERSON
+#define PERSON
+
 #include <string>
 
 struct Person {
@@ -7,7 +10,7 @@ struct Person {
   public:
     // 构造函数
     Person() = default;
-    Person(const std::string &n, const std::string &adr = "")
+    explicit Person(const std::string &n, const std::string &adr = "")
         : name(n), address(adr) {}
 
     std::string getname() const;
@@ -33,3 +36,5 @@ std::ostream &print(std::ostream &os, const Person &p) {
     os << p.name << p.address;
     return os;
 }
+
+#endif
