@@ -46,7 +46,8 @@
     "C_Cpp.default.includePath": [
         "./chapter1/headers",
         "./chapter6/headers",
-        "./chapter7/headers"
+        "./chapter7/headers",
+        "./chapter8/headers"
     ],
     "cSpell.words": [
         "getaddress"
