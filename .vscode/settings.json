@@ -41,7 +41,13 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "map": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "numeric": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.default.includePath": [
         "./chapter1/headers",
