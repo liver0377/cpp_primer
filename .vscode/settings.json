@@ -54,10 +54,12 @@
         "./chapter6/headers",
         "./chapter7/headers",
         "./chapter8/headers",
-        "./chapter10/headers"
+        "./chapter10/headers",
+        "./chapter12/headers"
     ],
     "cSpell.words": [
-        "getaddress"
+        "getaddress",
+        "wptr"
     ],
     "C_Cpp.clang_format_style": "LLVM"
 }
