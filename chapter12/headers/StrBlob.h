@@ -19,6 +19,9 @@ class StrBlob {
     StrBlob() : data(std::make_shared<std::vector<std::string>>()) {}
     StrBlob(std::initializer_list<std::string> l)
         : data(std::make_shared<std::vector<std::string>>(l)) {}
+    StrBlob(const StrBlob &sb)
+        : data(std::make_shared<std::vector<std::string>>(*sb.data)) {}
+    StrBlob &operator=(const StrBlob &sb);
 
     size_type size() const;
     bool empty() const;
@@ -40,6 +43,11 @@ class StrBlob {
     std::shared_ptr<std::vector<std::string>> data;
     void check(size_type, const std::string &msg) const;
 };
+
+StrBlob &StrBlob::operator=(const StrBlob &sb) {
+    data = std::make_shared<std::vector<std::string>>(*sb.data);
+    return *this;
+}
 
 std::vector<std::string>::size_type StrBlob::size() const {
     return data->size();

@@ -13,8 +13,10 @@ DIRS=(
     chapter10
     chapter11
     chapter12
+    chapter13
 )
 
 for dir in ${DIRS[@]}; do
     rm ${dir}/*/main 2>/dev/zero
+    rm ${dir}/tmp 2>/dev/zero
 done
