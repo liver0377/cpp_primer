@@ -7,7 +7,7 @@ class HasPtr {
     // 动态分配引用计数
     HasPtr(const std::string &s = std::string())
         : ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
-    HasPtr &operator=(const HasPtr &rhs);
+    HasPtr &operator=(HasPtr &rhs);
 
     HasPtr(const HasPtr &hp)
         : ps(new std::string(*hp.ps)), i(hp.i), use(hp.use) {
@@ -26,7 +26,7 @@ class HasPtr {
     std::size_t *use;
 };
 
-HasPtr &operator=(const HasPtr &rhs) {
+HasPtr &HasPtr::operator=(HasPtr &rhs) {
     ++rhs.use;
     if (!(--*use)) {
         delete ps;

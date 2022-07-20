@@ -27,6 +27,7 @@ class StrBlob {
     bool empty() const;
 
     void push_back(const std::string &t);
+    void push_back(const std::string &&t);
     void pop_back();
 
     std::string &front();
@@ -62,6 +63,10 @@ void StrBlob::check(size_type t, const std::string &msg) const {
 }
 
 void StrBlob::push_back(const std::string &s) { data->push_back(s); }
+
+void StrBlob::push_back(const std::string &&s) {
+    data->push_back(std::move(s));
+}
 
 void StrBlob::pop_back() { data->pop_back(); }
 
