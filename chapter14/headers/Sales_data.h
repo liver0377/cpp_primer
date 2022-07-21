@@ -41,6 +41,7 @@ class Sales_data {
 
     // 运算符重载
     Sales_data &operator+=(const Sales_data &rhs);
+    Sales_data &operator=(const std::string &);
 
   private:
     // 成员对象
@@ -77,17 +78,30 @@ std::ostream &print(std::ostream &os, const Sales_data &item) {
     return os;
 }
 
+Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
+    Sales_data t;
+    t.bookNo = lhs.bookNo;
+    t.revenue = lhs.revenue + rhs.revenue;
+    t.units_sold = lhs.units_sold + rhs.units_sold;
+    return t;
+}
+
 Sales_data &Sales_data::operator+=(const Sales_data &rhs) {
-    units_sold += rhs.units_sold;
-    revenue += rhs.revenue;
+    *this = *this + rhs;
     return *this;
 }
 
-Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
-    Sales_data sum = lhs;
-    sum += rhs;
-    return sum;
-}
+// Sales_data &Sales_data::operator+=(const Sales_data &rhs) {
+//     units_sold += rhs.units_sold;
+//     revenue += rhs.revenue;
+//     return *this;
+// }
+//
+// Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
+//     Sales_data sum = lhs;
+//     sum += rhs;
+//     return sum;
+// }
 
 std::ostream &operator<<(std::ostream &os, const Sales_data &item) {
     os << item.isbn() << " " << item.units_sold << " " << item.revenue << " "
@@ -104,5 +118,7 @@ std::istream &operator>>(std::istream &is, Sales_data &item) {
         item = Sales_data();
     return is;
 }
+
+Sales_data &Sales_data::operator=(const std::string &str) { bookNo = str; }
 
 #endif
