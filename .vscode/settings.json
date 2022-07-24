@@ -57,7 +57,8 @@
         "./chapter10/headers",
         "./chapter12/headers",
         "./chapter13/headers",
-        "./chapter14/headers"
+        "./chapter14/headers",
+        "./chapter15/headers"
     ],
     "cSpell.words": [
         "getaddress",
