@@ -1,0 +1,4 @@
+ISBN: Bible # sold: 10 total due: 206
+ISBN: C++Primer # sold: 10 total due: 185.4
+ISBN: CLRS # sold: 10 total due: 401
+Total Sale: 792.4

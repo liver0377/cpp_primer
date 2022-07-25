@@ -8,21 +8,15 @@ class Quote {
     friend bool operator!=(const Quote &lhs, const Quote &rhs);
 
   public:
-    Quote() { std::cout << "default constructing Quote\n"; }
-    Quote(const std::string &b, double p) : bookNo(b), price(p) {
-        std::cout << "Quote : constructor taking 2 parameters\n";
-    }
+    Quote() {}
+    Quote(const std::string &b, double p) : bookNo(b), price(p) {}
 
     // copy constructor
-    Quote(const Quote &q) : bookNo(q.bookNo), price(q.price) {
-        std::cout << "Quote: copy constructing\n";
-    }
+    Quote(const Quote &q) : bookNo(q.bookNo), price(q.price) {}
 
     // move constructor
     Quote(Quote &&q) noexcept
-        : bookNo(std::move(q.bookNo)), price(std::move(q.price)) {
-        std::cout << "Quote: move constructing\n";
-    }
+        : bookNo(std::move(q.bookNo)), price(std::move(q.price)) {}
 
     // copy =
     Quote &operator=(const Quote &rhs) {
@@ -30,7 +24,6 @@ class Quote {
             bookNo = rhs.bookNo;
             price = rhs.price;
         }
-        std::cout << "Quote: copy =() \n";
 
         return *this;
     }
@@ -41,16 +34,18 @@ class Quote {
             bookNo = std::move(rhs.bookNo);
             price = std::move(rhs.price);
         }
-        std::cout << "Quote: move =!!!!!!!!! \n";
 
         return *this;
     }
 
     std::string isbn() const { return bookNo; }
     virtual double net_price(std::size_t n) const { return n * price; }
+
+    virtual Quote *clone() const & { return new Quote(*this); }
+    virtual Quote *clone() && { return new Quote(std::move(*this)); }
     virtual void debug() const;
 
-    virtual ~Quote() { std::cout << "destructing Quote\n"; }
+    virtual ~Quote() {}
 
   private:
     std::string bookNo;

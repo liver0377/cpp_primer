@@ -6,16 +6,14 @@
 class Disc_quote : public Quote {
   public:
     Disc_quote() = default;
-    Disc_quote(const std::string &book, double prices, std::size_t qty,
+    Disc_quote(const std::string &book, double price, std::size_t qty,
                double disc)
-        : Quote(book, price), quantity(qty), discount(disc) {
-        std::cout << "constructing Disc_quote\n";
-    }
+        : Quote(book, price), quantity(qty), discount(disc) {}
 
     // net_price函数在该类中没有任何意义
     virtual double net_price(std::size_t) const = 0;
     virtual void debug() const;
-    virtual ~Disc_quote() override { std::cout << "destructing Disc_quote\n"; }
+    virtual ~Disc_quote() override {}
 
   protected:
     std::size_t quantity = 0;
