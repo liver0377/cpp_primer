@@ -17,6 +17,7 @@ DIRS=(
     chapter14
     chapter15
     chapter16
+    chapter17
 )
 
 for dir in ${DIRS[@]}; do
