@@ -19,6 +19,8 @@ class Vec {
 
     // members
     void push_back(const T& t);
+    template <typename... Args>
+    void emplace_back(Args&&...);
 
     std::size_t size() const { return first_free - element; }
     std::size_t capacity() const { return cap - element; }
@@ -111,6 +113,13 @@ void Vec<T>::push_back(const T& t) {
     alloc.construct(first_free++, t);
 }
 
+template <typename T>
+template <typename... Args>
+void Vec<T>::emplace_back(Args&&... args) {
+    chk_n_alloc();
+    alloc.construct(first_free++, std::forward<Args>(args)...);
+}
+
 /**
  * @brief   preallocate enough memory for specified number of elements
  * @param n number of elements required
@@ -137,7 +146,6 @@ template <typename T>
 void Vec<T>::resize(std::size_t n) {
     resize(n, T());
 }
-
 
 template <typename T>
 void Vec<T>::resize(std::size_t n, const T& t) {

@@ -21,7 +21,7 @@ DIRS=(
 
 for dir in ${DIRS[@]}; do
     rm ${dir}/*/main 2>/dev/zero
-    rm ${dir}/*/main.o 2>/dev/zero
+    rm ${dir}/*/*.o 2>/dev/zero
     rm ${dir}/tmp 2>/dev/zero
-    rm ${dir}/tmp.o 2>/dev/zero
+    rm ${dir}/*.o 2>/dev/zero
 done

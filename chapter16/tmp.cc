@@ -1,18 +1,11 @@
 #include <iostream>
+#include <vector>
 
-template <typename elemType>
-class ListItem;
+template <typename T> int compare(const T&, const T&);
 
-template <typename elemType>
-class List {
-   public:
-    List();
-    List(const List &);
-    ~List();
-    List &operator=(const List &);
 
-    void insert(ListItem<elemType> *ptr, elemType value);
-
-   private:
-    ListItem *front, *end;
-};
+int main() { 
+    unsigned t = 0;
+    t -= 1;
+    std::cout << typeid((t + t)).name() << std::endl;
+}
