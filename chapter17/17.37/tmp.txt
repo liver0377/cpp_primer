@@ -1,0 +1,6 @@
+Pika is a persistent huge storage service , compatible with the vast majority of redis interfaces (details),
+including string, hash, list, zset, set and management interfaces. With the huge amount of data stored,
+redis may suffer for a capacity bottleneck, and pika was born for solving it. Except huge storage capacity, 
+pika also support master-slave mode by slaveof command, including full and partial synchronization. You can 
+also use pika together with twemproxy or codis(pika has supported data migration in codis，thanks left2right and fancy-rabbit)
+ for distributed Redis solution
