@@ -18,11 +18,12 @@ DIRS=(
     chapter15
     chapter16
     chapter17
+    chapter18
 )
 
 for dir in ${DIRS[@]}; do
-    rm ${dir}/*/main 2>/dev/zero
+    rm ${dir}/*/main ${dir}/*/1 ${dir}/*/2 2>/dev/zero
     rm ${dir}/*/*.o 2>/dev/zero
-    rm ${dir}/tmp 2>/dev/zero
     rm ${dir}/*.o 2>/dev/zero
+    rm ${dir}/tmp 2>/dev/zero
 done
